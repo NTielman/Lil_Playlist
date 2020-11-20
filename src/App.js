@@ -1,11 +1,20 @@
 import React from 'react';
 import './App.css';
 //styling per component or external stylesheet?
+import About from './components/About';
+import Header from './components/Header';
+import SortMenu from './components/SortMenu';
+import List from './components/List';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     <div className="App">
-      <p>hello playlist</p>
+      <Header />
+      <SortMenu />
+      <List />
+      <Sidebar />
+      <About />
     </div>
   );
 }

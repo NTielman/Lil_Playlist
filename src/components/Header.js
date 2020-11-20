@@ -1,7 +1,15 @@
 import React from 'react';
+import AddSongForm from './AddSongForm';
 
 const Header = () => {
-    return (null)
+    const tempBool = false;
+    //onclick !tempbool
+    return (
+        <header>
+            <button className="btn display-form-btn">Add a song</button>
+            {tempBool ? null : <AddSongForm />}
+        </header>
+    );
 }
 
 export default Header;
