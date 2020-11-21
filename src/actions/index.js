@@ -11,6 +11,19 @@ export const add = () => {
     }
 }
 
+export const update = (inputTarget) => {
+    return {
+        type: 'UPDATE',
+        payload: inputTarget,
+    }
+}
+
+export const reset = () => {
+    return {
+        type: 'RESET',
+    }
+}
+
 export const sort = () => {
     return {
         type: 'SORT'

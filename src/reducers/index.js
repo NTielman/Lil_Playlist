@@ -7,7 +7,7 @@ import isHidden from './isHidden';
 
 const allReducers = combineReducers({
     // removeSong,
-    // addSong,
+    addSong,
     // filterSongs,
     // sortSongs,
     isHidden,

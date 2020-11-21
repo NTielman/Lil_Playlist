@@ -1,27 +1,39 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggle } from '../actions';
+import { toggle, add, update, reset } from '../actions';
 
 const AddSongForm = () => {
     const dispatch = useDispatch();
+    const newSong = useSelector(state => state.addSong);
     const ratings = [1, 2, 3, 4, 5];
     //array for genres i.map to make option list
 
     return (
-        <form className="add-song-form" name="add-song">
+        <form
+            className="add-song-form"
+            name="add-song"
+            onSubmit={(event) => {
+                event.preventDefault()
+                dispatch(add())
+            }}>
             <input
                 placeholder="Song Title..."
                 type="text"
                 name="title"
+                value={newSong.title}
+                onChange={(event) => dispatch(update(event.target))}
                 className="input-field"></input>
 
             <input
                 placeholder="Artist Name..."
                 type="text"
                 name="artist"
+                value={newSong.artist}
+                onChange={(event) => dispatch(update(event.target))}
                 className="input-field"></input>
 
-            <select name="genre">
+            <select name="genre"
+                onChange={(event) => dispatch(update(event.target))}>
                 <option value="" disabled selected hidden>Genre</option>
                 <option value="rock">Rock</option>
                 <option value="jazz">Jazz</option>
@@ -42,7 +54,7 @@ const AddSongForm = () => {
                             className="radio"
                             type="radio"
                             name="rating"
-                            key={index}
+                            onChange={(event) => dispatch(update(event.target))}
                             value={index}></input>
                     </label>)
             })}
@@ -51,14 +63,20 @@ const AddSongForm = () => {
                 placeholder="(optional) Album Art Url..."
                 type="url"
                 name="url"
+                value={newSong.url}
+                onChange={(event) => dispatch(update(event.target))}
                 className="input-field"></input>
+
             <button
                 type="submit"
                 className="btn add-btn">Add</button>
             <button
                 type="reset"
                 className="btn cancel-btn"
-                onClick={() => dispatch(toggle())}>Cancel</button>
+                onClick={() => {
+                    dispatch(reset())
+                    dispatch(toggle())
+                }}>Cancel</button>
         </form>
     );
 }

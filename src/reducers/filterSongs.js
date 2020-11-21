@@ -1,3 +1,5 @@
+const playlist = [];
+
 const filterSongs = () => {
 
 }
