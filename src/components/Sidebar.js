@@ -1,48 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove, clear } from '../actions';
 
-const Sidebar = (props) => {
-    if (props === true) {
-        return (
-            <div className='sidebar-container'>
-                <div className="song-info-container">
-                    <img className='sidebar-img'
-                        src={props.song.url}
-                        alt="album art"></img>
-                    <h3>Title: {props.song.title}</h3>
-                    <p>Artist: {props.song.artist}</p>
-                    <p>Genre: {props.song.genre}</p>
-                    <p>{props.song.rating}</p>
-                    <button>Delete Track</button>
-                </div>
-                <br></br>
-                <hr></hr>
-                <Link to='/about'>
-                    About Us
-                </Link>
+const Sidebar = () => {
+    const dispatch = useDispatch();
+    const selectedSong = useSelector(state => state.expandSong);
+
+    return (
+        <div className='sidebar'>
+            <div className="song-info-container">
+                <img className='sidebar-img'
+                    src={selectedSong.url}
+                    alt="album art"></img>
+                <h3>Title: {selectedSong.title}</h3>
+                <p>Artist: {selectedSong.artist}</p>
+                <p>Genre: {selectedSong.genre}</p>
+                <p>{selectedSong.rating}</p>
+                <button
+                    className="btn delete-btn"
+                    onClick={() => {
+                        dispatch(remove(selectedSong.id))
+                        dispatch(clear())
+                    }}>Delete Track</button>
             </div>
-        );
-    } else {
-        return (
-            <div className='sidebar-container'>
-                <div className="song-info-container">
-                    <img className='sidebar-img'
-                        src='https://w7.pngwing.com/pngs/552/280/png-transparent-phantasy-ghost-culture-vinyl-disc-phonograph-record-lp-record-vinyl-miscellaneous-phonograph-gramophone-record.png'
-                        alt="album art placeholder"></img>
-                    <h3>Title:</h3>
-                    <p>Artist:</p>
-                    <p>Genre:</p>
-                    <p>0</p>
-                    <button>Delete Track</button>
-                </div>
-                <br></br>
-                <hr></hr>
-                <Link to='/about'>
-                    About Us
+            <br></br>
+            <hr></hr>
+            <Link to='/about'>
+                About Us
                 </Link>
-            </div>
-        );
-    }
+        </div>
+    );
 
 }
 

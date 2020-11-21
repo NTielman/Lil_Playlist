@@ -4,9 +4,9 @@ import { toggle, add, update, reset } from '../actions';
 
 const AddSongForm = () => {
     const dispatch = useDispatch();
-    const newSong = useSelector(state => state.addSong);
+    const newSong = useSelector(state => state.createSong);
     const ratings = [1, 2, 3, 4, 5];
-    //array for genres i.map to make option list
+    const genres = ["rock", "jazz", "pop", "rnb", "rap", "lofi", "latin", "soul"];
 
     return (
         <form
@@ -14,8 +14,9 @@ const AddSongForm = () => {
             name="add-song"
             onSubmit={(event) => {
                 event.preventDefault()
-                dispatch(add())
+                dispatch(add(newSong))
             }}>
+
             <input
                 placeholder="Song Title..."
                 type="text"
@@ -32,18 +33,16 @@ const AddSongForm = () => {
                 onChange={(event) => dispatch(update(event.target))}
                 className="input-field"></input>
 
-            <select name="genre"
+            <select
+                name="genre"
                 onChange={(event) => dispatch(update(event.target))}>
                 <option value="" disabled selected hidden>Genre</option>
-                <option value="rock">Rock</option>
-                <option value="jazz">Jazz</option>
-                <option value="pop">Pop</option>
-                <option value="rnb">R&B</option>
-                <option value="rap">Rap</option>
-                <option value="lofi">Lo-Fi</option>
-                <option value="latin">Latin</option>
-                <option value="soul">Soul</option>
-            </select>
+                {genres.map(genre => {
+                    return (
+                        <option
+                            value={genre}
+                            key={genres.indexOf(genre)}>{genre}</option>)
+                })}</select>
 
             <label>Rating:</label>
             {ratings.map(index => {
@@ -70,6 +69,7 @@ const AddSongForm = () => {
             <button
                 type="submit"
                 className="btn add-btn">Add</button>
+
             <button
                 type="reset"
                 className="btn cancel-btn"

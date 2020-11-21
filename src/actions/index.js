@@ -1,13 +1,14 @@
-export const remove = (num) => {
+export const remove = (songId) => {
     return {
         type: 'REMOVE',
-        payload: num,
+        payload: songId,
     }
 }
 
-export const add = () => {
+export const add = (song) => {
     return {
-        type: 'ADD'
+        type: 'ADD',
+        payload: song,
     }
 }
 
@@ -39,6 +40,19 @@ export const filter = () => {
 export const toggle = () => {
     return {
         type: 'TOGGLE'
+    }
+}
+
+export const expand = (selectedSong) => {
+    return {
+        type: 'EXPAND',
+        payload: selectedSong,
+    }
+}
+
+export const clear = () => {
+    return {
+        type: 'CLEAR',
     }
 }
 

@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux';
-import removeSong from './removeSong';
-import addSong from './addSong';
+import createSong from './createSong';
 import filterSongs from './filterSongs';
 import sortSongs from './sortSongs';
 import isHidden from './isHidden';
+import expandSong from './expandSong';
+import musicLibrary from './musicLibrary';
 
 const allReducers = combineReducers({
-    // removeSong,
-    addSong,
+    createSong,
     // filterSongs,
     // sortSongs,
     isHidden,
+    expandSong,
+    musicLibrary,
 });
 
 export default allReducers;
