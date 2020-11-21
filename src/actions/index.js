@@ -22,3 +22,11 @@ export const filter = () => {
         type: 'FILTER'
     }
 }
+
+export const toggle = () => {
+    return {
+        type: 'TOGGLE'
+    }
+}
+
+//every action needs a reducer 1 reducer por handle more than 1 action 

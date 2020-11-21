@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggle } from '../actions';
 
 const AddSongForm = () => {
+    const dispatch = useDispatch();
     const ratings = [1, 2, 3, 4, 5];
     //array for genres i.map to make option list
 
@@ -54,7 +57,8 @@ const AddSongForm = () => {
                 className="btn add-btn">Add</button>
             <button
                 type="reset"
-                className="btn cancel-btn">Cancel</button>
+                className="btn cancel-btn"
+                onClick={() => dispatch(toggle())}>Cancel</button>
         </form>
     );
 }

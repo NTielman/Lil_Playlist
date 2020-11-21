@@ -6,16 +6,20 @@ import Header from './components/Header';
 import SortMenu from './components/SortMenu';
 import List from './components/List';
 import Sidebar from './components/Sidebar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <SortMenu />
-      <List />
-      <Sidebar />
-      <About />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <SortMenu />
+        <Sidebar />
+        <Route path='/' exact component={List} />
+        <Route path='/about' component={About} />
+      </div>
+    </Router>
   );
 }
 
