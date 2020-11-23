@@ -18,13 +18,8 @@ const createSong = (state = newSong, action) => {
                 [name]: value
             };
         case 'RESET':
-            return {
-                title: '',
-                artist: '',
-                genre: '',
-                rating: '',
-                url: '',
-            };
+            const emptyForm = newSong;
+            return emptyForm;
         default:
             return state;
     }

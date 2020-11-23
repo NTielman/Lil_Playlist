@@ -1,16 +1,15 @@
 import React from 'react';
 import FiltersMenu from './FiltersMenu';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sort, duplicate, toggleFilters } from '../actions';
 
 const SortMenu = () => {
     const dispatch = useDispatch();
-    const musicLibrary = useSelector(state => state.musicLibrary);
-    const hideFilters = useSelector(state => state.filterSongs);
+    // const musicLibrary = useSelector(state => state.updateLibrary);
+    let hideFilters = useSelector(state => state.hideFilters);
 
     //makes initial copy of musiclibrary to display
-    dispatch(duplicate(musicLibrary));
+    //dispatch(duplicate(musicLibrary));
     let sortDown = true;
 
     return (

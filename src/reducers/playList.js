@@ -66,6 +66,7 @@ const sortSongs = (state = [], action) => {
             }
 
             return sortedList;
+
         default:
             return state;
     }

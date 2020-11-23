@@ -1,4 +1,4 @@
-const myMusic = [
+const musicLibrary = [
     {
         title: 'Let it happen',
         artist: 'Tame Impala',
@@ -32,35 +32,5 @@ const myMusic = [
         id: 4,
     },
 ];
-
-const musicLibrary = (state = myMusic, action) => {
-
-    switch (action.type) {
-        case 'ADD':
-            const newSong = action.payload;
-            const id = state.length + 1;
-
-            return [
-                ...state,
-                {
-                    ...newSong,
-                    id
-                }
-            ];
-        case 'REMOVE':
-            const songId = action.payload;
-            let indexId = 0;
-            const filteredList = state.filter(song => song.id !== songId);
-            const updatedList = filteredList.map(song => {
-                indexId++;
-                return { ...song, id: indexId };
-            });
-
-            return updatedList;
-
-        default:
-            return state;
-    }
-}
 
 export default musicLibrary;

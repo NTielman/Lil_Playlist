@@ -32,9 +32,10 @@ export const sort = (sortCriteria) => {
     }
 }
 
-export const filter = () => {
+export const filter = (genre) => {
     return {
-        type: 'FILTER'
+        type: 'FILTER',
+        payload: genre,
     }
 }
 

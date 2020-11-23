@@ -1,4 +1,4 @@
-const filterSongs = (state = true, action) => {
+const hideFilters = (state = true, action) => {
 
     switch (action.type) {
         case 'TOGGLE_FILTERS':
@@ -9,4 +9,4 @@ const filterSongs = (state = true, action) => {
 
 }
 
-export default filterSongs;
+export default hideFilters;

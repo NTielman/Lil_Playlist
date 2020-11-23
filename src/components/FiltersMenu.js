@@ -1,20 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { filter } from '../actions';
 
-const tempGenres = ['rock', 'jazz', 'pop', 'rnb', 'rap', 'lofi', 'latin', 'soul'];
+const genres = ['rock', 'jazz', 'pop', 'rnb', 'rap', 'lofi', 'latin', 'soul'];
 
 const FiltersMenu = () => {
+    const dispatch = useDispatch();
+
     return (
         <ul className="filter-menu">
-            {tempGenres.map(genre => {
+            {genres.map(genre => {
                 return (
-                    <li key={tempGenres.indexOf(genre)}>
+                    <li key={genres.indexOf(genre)}>
                         <label>
                             {genre}
                             <input
                                 className="checkbox"
                                 type="checkbox"
                                 name="genre"
-                                key={tempGenres.indexOf(genre)}
+                                onChange={(event) => dispatch(filter(event.target))}
+                                key={genres.indexOf(genre)}
                                 value={genre}></input>
                         </label>
                     </li>);
