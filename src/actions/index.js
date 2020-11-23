@@ -25,9 +25,10 @@ export const reset = () => {
     }
 }
 
-export const sort = () => {
+export const sort = (sortCriteria) => {
     return {
-        type: 'SORT'
+        type: 'SORT',
+        payload: sortCriteria,
     }
 }
 
@@ -37,9 +38,15 @@ export const filter = () => {
     }
 }
 
-export const toggle = () => {
+export const toggleForm = () => {
     return {
-        type: 'TOGGLE'
+        type: 'TOGGLE_FORM'
+    }
+}
+
+export const toggleFilters = () => {
+    return {
+        type: 'TOGGLE_FILTERS'
     }
 }
 
@@ -53,7 +60,14 @@ export const expand = (selectedSong) => {
 export const clear = () => {
     return {
         type: 'CLEAR',
+
     }
 }
 
-//every action needs a reducer 1 reducer por handle more than 1 action 
+export const duplicate = (musicList) => {
+    return {
+        type: 'DUPLICATE',
+        payload: musicList,
+
+    }
+}

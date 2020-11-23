@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggle, add, update, reset } from '../actions';
+import { toggleForm, add, update, reset } from '../actions';
 
 const AddSongForm = () => {
     const dispatch = useDispatch();
@@ -15,6 +15,8 @@ const AddSongForm = () => {
             onSubmit={(event) => {
                 event.preventDefault()
                 dispatch(add(newSong))
+                dispatch(toggleForm())
+                dispatch(reset())
             }}>
 
             <input
@@ -75,7 +77,7 @@ const AddSongForm = () => {
                 className="btn cancel-btn"
                 onClick={() => {
                     dispatch(reset())
-                    dispatch(toggle())
+                    dispatch(toggleForm())
                 }}>Cancel</button>
         </form>
     );

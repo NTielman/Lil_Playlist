@@ -3,7 +3,8 @@ import ListItem from './ListItem';
 import { useSelector } from 'react-redux';
 
 const List = () => {
-    const playList = useSelector(state => state.musicLibrary);
+
+    const playList = useSelector(state => state.playList);
 
     return (
 

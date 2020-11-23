@@ -1,10 +1,10 @@
-const isHidden = (state = true, action) => {
+const hideForm = (state = true, action) => {
     switch (action.type) {
-        case 'TOGGLE':
+        case 'TOGGLE_FORM':
             return !state;
         default:
             return state;
     }
 }
 
-export default isHidden;
+export default hideForm;

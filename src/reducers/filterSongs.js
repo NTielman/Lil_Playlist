@@ -1,6 +1,11 @@
-const playlist = [];
+const filterSongs = (state = true, action) => {
 
-const filterSongs = () => {
+    switch (action.type) {
+        case 'TOGGLE_FILTERS':
+            return !state;
+        default:
+            return state;
+    }
 
 }
 
