@@ -5,11 +5,12 @@ const filterSongs = (state = [], action) => {
         case 'FILTER':
             const target = action.payload;
             const { name, value } = target;
+            const activeFilter = { [name]: value };
+
             if (target.checked) {
-                const filteredList = state.filter(song => song[name] === value);
-                return filteredList;
+                return [...state, activeFilter];
             } else {
-                return state;
+                return state.filter(genre => genre[name] !== value);
             }
 
         default:
