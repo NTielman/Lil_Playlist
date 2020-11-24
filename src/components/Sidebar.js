@@ -24,11 +24,12 @@ const Sidebar = () => {
                         dispatch(clear())
                     }}>Delete Track</button>
             </div>
-            <br></br>
-            <hr></hr>
-            <Link to='/about'>
-                About Us
+            <div className="about-link">
+                <hr></hr>
+                <Link to='/about'>
+                    About Us
                 </Link>
+            </div>
         </div>
     );
 

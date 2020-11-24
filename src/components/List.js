@@ -19,24 +19,24 @@ const List = () => {
     //if activefilters length empty display playlist else display filtered lists
 
     return (
+        <div className="playlist-container">
+            <ul className="playlist">
+                {activeFilters.length > 0 ?
+                    filteredList.map(song => {
+                        return (
+                            <ListItem
+                                song={song}
+                                key={song.id} />)
+                    }) : playList.map(song => {
+                        return (
+                            <ListItem
+                                song={song}
+                                key={song.id} />)
+                    })
+                }
 
-        <ul>
-            {activeFilters.length > 0 ?
-                filteredList.map(song => {
-                    return (
-                        <ListItem
-                            song={song}
-                            key={song.id} />)
-                }) : playList.map(song => {
-                    return (
-                        <ListItem
-                            song={song}
-                            key={song.id} />)
-                })
-            }
-
-        </ul>
-
+            </ul>
+        </div>
     );
 
 }
