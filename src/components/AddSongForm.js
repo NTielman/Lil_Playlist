@@ -46,27 +46,32 @@ const AddSongForm = () => {
                             key={genres.indexOf(genre)}>{genre}</option>)
                 })}</select>
 
-            <label>Rating:</label>
-            {ratings.map(index => {
-                return (
-                    <label key={index}>
-                        <i className="fas fa-star"></i>
-                        <input
-                            className="radio"
-                            type="radio"
-                            name="rating"
-                            onChange={(event) => dispatch(update(event.target))}
-                            value={index}></input>
-                    </label>)
-            })}
+            <span className="rating-field">
+                <label>Rating:</label>
+                {ratings.map(index => {
+                    return (
+                        <label key={index}>
+                            <i className="fas fa-star"></i>
+                            <input
+                                className="radio"
+                                type="radio"
+                                name="rating"
+                                onChange={(event) => dispatch(update(event.target))}
+                                value={index}></input>
+                        </label>)
+                })}
+            </span>
 
-            <input
-                placeholder="(optional) Album Art Url..."
-                type="url"
-                name="url"
-                value={newSong.url}
-                onChange={(event) => dispatch(update(event.target))}
-                className="input-field"></input>
+            <span className="tooltip">
+                <span className="tooltiptext">*optional: add an url to display custom album art </span>
+                <input
+                    placeholder="Album Art Url..."
+                    type="url"
+                    name="url"
+                    value={newSong.url}
+                    onChange={(event) => dispatch(update(event.target))}
+                    className="input-field"></input>
+            </span>
 
             <button
                 type="submit"

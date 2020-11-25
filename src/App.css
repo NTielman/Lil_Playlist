@@ -15,7 +15,7 @@ color: whitesmoke;
   width: 100%;
   display: grid;
   grid-template-columns: 400px auto;
-  grid-template-rows: 35% 40px auto;
+  grid-template-rows: 40% 45px auto;
   grid-template-areas: 
   "sidebar header "
   "sidebar menu"
@@ -36,6 +36,7 @@ color: whitesmoke;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  font-family: 'Lobster Two', cursive;
   background-image: linear-gradient(to bottom,rgb(13, 10, 17), rgb(31, 25, 39),  rgba(31, 25, 39, 0.945));
 }
 
@@ -47,17 +48,82 @@ color: whitesmoke;
 
 }
 
+.tooltip .tooltiptext,
+.song-info-tooltip .tooltiptext {
+  opacity: 0;
+  transition: opacity 1s;
+  font-size: 16px;
+  width: 200px;
+  text-align: center;
+  font-family: 'Yantramanav', sans-serif;
+  background-color: rgba(224, 39, 122, 0.5);
+  box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
+  color: rgba(245, 245, 245, 0.6);
+  border-radius: 15px;
+  padding: 5px;
+  line-height: 1.5em;
+}
+
+.song-info-tooltip .tooltiptext {
+/* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 13.5%;
+  left: 6%;
+}
+
+.tooltip .tooltiptext {
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 8%;
+  right: 10.5%;
+  }
+
+.tooltip:hover .tooltiptext,
+.song-info-tooltip:hover .tooltiptext {
+  opacity: 1;
+}
+
 .btn {
   border: none;
   padding: 10px;
+  outline: none;
+  cursor: pointer;
+  height: 38px;
+  font-family: 'Lobster Two', cursive;
+  box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
 }
 
 .delete-btn,
 .display-form-btn {
   border-radius: 15px;
   width: 150px;
-  height: 38px;
-  box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
+  background-color:rgb(30, 177, 245);
+}
+
+.add-btn,
+.cancel-btn {
+  width: 75px;
+}
+
+.cancel-btn {
+  border-radius: 0px 15px 15px 0px;
+  background-color: rgb(250, 73, 114);
+}
+
+.cancel-btn:hover {
+  background-color: rgb(255, 135, 109);
+}
+
+.add-btn:hover,
+.delete-btn:hover,
+.display-form-btn:hover {
+  background-color:rgb(224, 39, 121);
+}
+
+.add-btn {
+  background-color:rgb(30, 177, 245);
 }
 
 hr {
@@ -70,14 +136,74 @@ text-decoration: none;
 color: rgba(245, 245, 245, 0.5);
 }
 
+a:hover {
+  color: rgb(250, 73, 114);
+}
+
 header {
   grid-area: header;
   padding: 40px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: chocolate;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=3000&q=80);
   font-family: 'Lobster Two', cursive;
+}
+
+.add-song-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+select,
+.rating-field,
+.input-field{
+  padding: 10px;
+  border: none;
+  margin-right: 5px;
+  background-color: rgba(245, 245, 245, 0.904);
+  box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
+  height: 38px;
+  outline: none;
+}
+
+.rating-field label i:hover {
+  color: rgb(250, 73, 114);
+}
+
+.input-field:nth-child(1) {
+  border-radius: 15px 0px 0px 15px;
+}
+
+.filter-menu li label,
+.add-song-form label i,
+select {
+  cursor: pointer;
+}
+
+.rating-field,
+select,
+::placeholder {
+  color: rgb(13, 10, 17);
+  font-family: 'Yantramanav', sans-serif;
+}
+
+.rating-field {
+  font-size: 13px;
+}
+
+.add-song-form label {
+  margin-right: 5px;
+}
+
+.checkbox,
+.radio {
+  display: none;
 }
 
 .menu {
@@ -85,18 +211,31 @@ header {
   padding: 10px 20px;
   background-image: linear-gradient(to bottom,rgb(13, 10, 17), rgba(31, 25, 39, 0.925));
 }
+
+.filter-menu,
 .sort-menu {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 35px;
 }
 
+.filter-menu li,
 .sort-menu li {
 display: inline-block;
 font-size: 18px;
 font-family: 'Lobster Two', cursive;
 list-style: none;
 width: 100px;
+cursor: pointer;
 }
+
+.filter-menu li:hover,
+.sort-menu li:hover {
+  border-bottom: 2px solid rgb(250, 73, 114);
+  box-shadow: 0px 7px 20px rgb(250, 73, 114);
+}
+
 
 .playlist-container {
   grid-area: playlist;
@@ -112,6 +251,7 @@ width: 100px;
 }
 
 .song-item {
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   font-size: 16px;
@@ -121,6 +261,10 @@ width: 100px;
   padding: 5px 0px;
   color: rgba(245, 245, 245, 0.6);
   border-bottom: 1px solid rgba(3, 2, 3, 0.5);
+}
+
+.song-item:hover {
+  background-color: rgba(250, 73, 114, 0.05);
 }
 
 .genre,

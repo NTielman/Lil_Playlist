@@ -10,9 +10,12 @@ const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className="song-info-container">
-                <img className='sidebar-img'
-                    src={selectedSong.url}
-                    alt="album art"></img>
+                <span className="song-info-tooltip">
+                    <span className="tooltiptext">click on a song to display more info </span>
+                    <img className='sidebar-img'
+                        src={selectedSong.url}
+                        alt="album art"></img>
+                </span>
                 <h3>Title: {selectedSong.title}</h3>
                 <p>Artist: {selectedSong.artist}</p>
                 <p>Genre: {selectedSong.genre}</p>
