@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { remove, clear } from '../actions';
+import starRating from './StarRating';
 
 const Sidebar = () => {
     const dispatch = useDispatch();
     const selectedSong = useSelector(state => state.expandSong);
+    const ratingNumber = selectedSong.rating;
+
 
     return (
         <div className='sidebar'>
@@ -19,7 +22,7 @@ const Sidebar = () => {
                 <h3>Title: {selectedSong.title}</h3>
                 <p>Artist: {selectedSong.artist}</p>
                 <p>Genre: {selectedSong.genre}</p>
-                <p>{selectedSong.rating}</p>
+                <p>{starRating(ratingNumber)}</p>
                 <button
                     className="btn delete-btn"
                     onClick={() => {

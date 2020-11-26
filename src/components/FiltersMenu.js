@@ -12,16 +12,14 @@ const FiltersMenu = () => {
             {genres.map(genre => {
                 return (
                     <li key={genres.indexOf(genre)}>
-                        <label>
-                            {genre}
-                            <input
-                                className="checkbox"
-                                type="checkbox"
-                                name="genre"
-                                onChange={(event) => dispatch(filter(event.target))}
-                                key={genres.indexOf(genre)}
-                                value={genre}></input>
-                        </label>
+                        <input
+                            className="checkbox"
+                            type="checkbox"
+                            name="genre"
+                            onChange={(event) => dispatch(filter(event.target))}
+                            id={genre}
+                            value={genre}></input>
+                        <label htmlFor={genre}>{genre}</label>
                     </li>);
             })}
         </ul>);

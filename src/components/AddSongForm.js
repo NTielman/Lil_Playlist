@@ -5,7 +5,7 @@ import { toggleForm, add, update, reset } from '../actions';
 const AddSongForm = () => {
     const dispatch = useDispatch();
     const newSong = useSelector(state => state.createSong);
-    const ratings = [1, 2, 3, 4, 5];
+    const ratings = [5, 4, 3, 2, 1];
     const genres = ["rock", "jazz", "pop", "rnb", "rap", "lofi", "latin", "soul"];
 
     return (
@@ -47,19 +47,19 @@ const AddSongForm = () => {
                 })}</select>
 
             <span className="rating-field">
-                <label>Rating:</label>
                 {ratings.map(index => {
                     return (
                         <label key={index}>
-                            <i className="fas fa-star"></i>
                             <input
                                 className="radio"
                                 type="radio"
                                 name="rating"
                                 onChange={(event) => dispatch(update(event.target))}
                                 value={index}></input>
+                            <i className="fas fa-star"></i>
                         </label>)
                 })}
+                Rating:
             </span>
 
             <span className="tooltip">

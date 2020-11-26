@@ -5,48 +5,52 @@ import { sort, toggleFilters } from '../actions';
 
 const SortMenu = () => {
     const dispatch = useDispatch();
-
     let hideFilters = useSelector(state => state.hideFilters);
-
     let sortDown = true;
 
     return (
-        <div className="menu">
-            <ul className="sort-menu">
-                <li id="title"
-                    onClick={(event) => {
-                        const sortCriteria = {
-                            sortBy: event.target.id, //sort by title
-                            sortDirection: sortDown
-                        };
-                        dispatch(sort(sortCriteria))
-                        sortDown = !sortDown;
-                    }}
-                >Title <i className="fas fa-sort"></i></li>
-                <li id="artist"
-                    onClick={(event) => {
-                        const sortCriteria = {
-                            sortBy: event.target.id, //sort by artist
-                            sortDirection: sortDown
-                        };
-                        dispatch(sort(sortCriteria))
-                        sortDown = !sortDown;
-                    }}
-                >Artist <i className="fas fa-sort"></i></li>
-                <li
-                    onClick={() => dispatch(toggleFilters())}>Genre</li>
-                <li id="rating"
-                    onClick={(event) => {
-                        const sortCriteria = {
-                            sortBy: event.target.id, //sort by rating
-                            sortDirection: sortDown
-                        };
-                        dispatch(sort(sortCriteria))
-                        sortDown = !sortDown;
-                    }}
-                >Rating <i className="fas fa-sort"></i></li>
-            </ul>
-            {hideFilters ? null : <FiltersMenu />}
+        <div className="menu-container">
+            <table className="menu">
+                <tr className="sort-menu">
+                    <th></th>
+                    <th id="title"
+                        onClick={(event) => {
+                            const sortCriteria = {
+                                sortBy: event.target.id, //sort by title
+                                sortDirection: sortDown
+                            };
+                            dispatch(sort(sortCriteria))
+                            sortDown = !sortDown;
+                        }}
+                    >Title <i className="fas fa-sort"></i></th>
+                    <th id="artist"
+                        onClick={(event) => {
+                            const sortCriteria = {
+                                sortBy: event.target.id, //sort by artist
+                                sortDirection: sortDown
+                            };
+                            dispatch(sort(sortCriteria))
+                            sortDown = !sortDown;
+                        }}
+                    >Artist <i className="fas fa-sort"></i></th>
+                    <th id="genre"
+                        onClick={() => dispatch(toggleFilters())}>Genre</th>
+                    <th id="rating"
+                        onClick={(event) => {
+                            const sortCriteria = {
+                                sortBy: event.target.id, //sort by rating
+                                sortDirection: sortDown
+                            };
+                            dispatch(sort(sortCriteria))
+                            sortDown = !sortDown;
+                        }}
+                    >Rating <i className="fas fa-sort"></i></th>
+                </tr>
+            </table>
+            <div className="menu">
+                {hideFilters ? null : <FiltersMenu />}
+            </div>
+
         </div>);
 }
 

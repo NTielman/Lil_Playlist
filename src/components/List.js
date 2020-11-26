@@ -20,7 +20,7 @@ const List = () => {
 
     return (
         <div className="playlist-container">
-            <ul className="playlist">
+            <table className="playlist">
                 {activeFilters.length > 0 ?
                     filteredList.map(song => {
                         return (
@@ -35,7 +35,7 @@ const List = () => {
                     })
                 }
 
-            </ul>
+            </table>
         </div>
     );
 
