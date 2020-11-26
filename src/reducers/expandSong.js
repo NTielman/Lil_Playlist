@@ -1,4 +1,4 @@
-const expandedSong = {
+const defaultSong = {
     title: '',
     artist: '',
     genre: '',
@@ -7,12 +7,15 @@ const expandedSong = {
     id: '',
 }
 
-const expandSong = (state = expandedSong, action) => {
+const expandSong = (state = defaultSong, action) => {
 
     switch (action.type) {
+
         case 'EXPAND':
-            const selectedSong = action.payload;
-            const { title, artist, genre, rating, url, id } = selectedSong;
+            //get song data from user-selected song
+            const { title, artist, genre, rating, url, id } = action.payload;
+
+            //update state with new data
             return {
                 title,
                 artist,
@@ -21,15 +24,11 @@ const expandSong = (state = expandedSong, action) => {
                 url,
                 id,
             };
+
         case 'RESET-SIDEBAR':
-            return {
-                title: '',
-                artist: '',
-                genre: '',
-                rating: '',
-                url: 'https://pngimg.com/uploads/vinyl/vinyl_PNG97.png',
-                id: '',
-            };
+
+            return defaultSong;
+
         default:
             return state;
     }

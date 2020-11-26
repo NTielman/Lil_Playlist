@@ -1,11 +1,16 @@
-const filterList = (playlist, filtersArray) => {
+const filterList = (playlist, filtersObject) => {
     let filteredList = [];
 
-    filtersArray.forEach(filter => {
-        const { genre } = filter;
-        const genreList = playlist.filter(song => song.genre === genre);
-        filteredList = [...filteredList, ...genreList];
+    Object.entries(filtersObject).forEach(entry => {
+        const [key, value] = entry;
+
+        if (value) {
+            const genreList = playlist.filter(song => song.genre === key);
+            filteredList = [...filteredList, ...genreList];
+        }
+
     });
+
     return filteredList;
 
 }

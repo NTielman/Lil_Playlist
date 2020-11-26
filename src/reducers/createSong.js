@@ -1,4 +1,4 @@
-const newSong = {
+const defaultSong = {
     title: '',
     artist: '',
     genre: '',
@@ -6,20 +6,21 @@ const newSong = {
     url: '',
 }
 
-const createSong = (state = newSong, action) => {
+const createSong = (state = defaultSong, action) => {
 
     switch (action.type) {
-        case 'UPDATE-FORM':
-            const target = action.payload;
-            const { name, value } = target;
 
-            return {
-                ...state,
-                [name]: value
-            };
+        case 'UPDATE-FORM':
+            //get userinput
+            const { name, value } = action.payload;
+
+            //update state with userinput
+            return { ...state, [name]: value };
+
         case 'RESET-FORM':
-            const emptyForm = newSong;
-            return emptyForm;
+
+            return defaultSong;
+
         default:
             return state;
     }

@@ -12,7 +12,7 @@ const musicLibrary = [
         artist: 'Bruno Mars',
         genre: 'jazz',
         rating: 4,
-        url: '',
+        url: 'https://media.npr.org/assets/img/2015/07/08/tame-impala-cover2_sq-27bec311716548d1d706ac5eaff060d2cb6bc7ab.jpg',
         id: 2,
     },
     {

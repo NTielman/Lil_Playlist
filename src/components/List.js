@@ -10,8 +10,9 @@ const List = () => {
     const activeFilters = useSelector(state => state.activeFilters);
     const playList = useSelector(state => state.sortSongs);
     const filteredList = FilteredList(playList, activeFilters);
-    //makes initial copy of musiclibrary to display
+    const applyFilters = Object.values(activeFilters).filter(value => value === true);
 
+    //makes initial copy of musiclibrary to display
     useEffect(() => {
         dispatch(duplicate(musicLibrary));
     }, [musicLibrary, dispatch])
@@ -21,20 +22,21 @@ const List = () => {
     return (
         <div className="playlist-container">
             <table className="playlist">
-                {activeFilters.length > 0 ?
-                    filteredList.map(song => {
-                        return (
-                            <ListItem
-                                song={song}
-                                key={song.id} />)
-                    }) : playList.map(song => {
-                        return (
-                            <ListItem
-                                song={song}
-                                key={song.id} />)
-                    })
-                }
-
+                <tbody>
+                    {applyFilters.length > 0 ?
+                        filteredList.map(song => {
+                            return (
+                                <ListItem
+                                    song={song}
+                                    key={song.id} />)
+                        }) : playList.map(song => {
+                            return (
+                                <ListItem
+                                    song={song}
+                                    key={song.id} />)
+                        })
+                    }
+                </tbody>
             </table>
         </div>
     );

@@ -1,5 +1,12 @@
 const sortSongs = (state = [], action) => {
+    //laga state bashi akiriba if(state === undefined) state = action.payload.
+    //change this from reducer to function? meeskos ku filters.
+    //function that takes in a playlist i sort criteria and return a song array based on that criteria
 
+    //DOM list usestate =[] ora filters get clicked setstate = filteredlist.
+    //ora sort get clicked setstate to sort whatever playlist ta den DOM 
+    //so filter should always receive a full songlist (library) to filter from
+    //sort should receive whatever playlist ta den e DOM ?
     switch (action.type) {
         case 'DUPLICATE':
             const playList = action.payload;
@@ -71,6 +78,5 @@ const sortSongs = (state = [], action) => {
             return state;
     }
 }
-
 
 export default sortSongs;

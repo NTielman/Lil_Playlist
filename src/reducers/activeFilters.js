@@ -1,21 +1,33 @@
-const activeFilters = (state = [], action) => {
+const defaultFilters = {
+    rock: false,
+    jazz: false,
+    pop: false,
+    rnb: false,
+    rap: false,
+    lofi: false,
+    latin: false,
+    soul: false
+}
+
+const activeFilters = (state = defaultFilters, action) => {
 
     switch (action.type) {
 
         case 'GET-FILTERS':
-            const target = action.payload;
-            const { name, value } = target;
-            const activeFilter = { [name]: value };
+            //make a copy of state
+            let filters = { ...state };
 
-            if (target.checked) {
-                return [...state, activeFilter];
-            } else {
-                return state.filter(genre => genre[name] !== value);
-            }
+            //get userinput
+            const { value, checked } = action.payload;
+
+            //update state with userinput
+            filters = { ...filters, [value]: checked };
+            return filters;
 
         default:
             return state;
     }
+
 }
 
 export default activeFilters;
