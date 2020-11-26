@@ -19,7 +19,6 @@ const allReducers = combineReducers({
 
 export default allReducers;
 
-//header tin ku use state that tells it what genre is chosen {genre: url, jazz: url, rock:url} etc
-//setinterval to render backgroundimages
 //vul in database of songs
+//fix headercarousel rerenders everytime button is clicked
 //some components bijv addform i toggle can use local states usestate()?

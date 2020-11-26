@@ -12,13 +12,13 @@ const ListItem = (props) => {
         <tr className="song-item"
             key={props.song.id}
             onClick={() => dispatch(expand(props.song))}>
-            <td><img className="list-image"
-                src={props.song.url !== '' ? props.song.url : 'https://pngimg.com/uploads/vinyl/vinyl_PNG97.png'}
+            <td><img className="song-item-image"
+                src={props.song.url}
                 alt="album art"></img></td>
-            <td className="title"><h3>{props.song.title}</h3></td>
-            <td className="artist">{props.song.artist}</td>
-            <td className="genre">{props.song.genre}</td>
-            <td className="rating">{starRating(ratingNumber)}</td>
+            <td className="song-item-data"><h3>{props.song.title}</h3></td>
+            <td className="song-item-data">{props.song.artist}</td>
+            <td className="song-item-data">{props.song.genre}</td>
+            <td className="song-item-data">{starRating(ratingNumber)}</td>
         </tr>
     );
 }

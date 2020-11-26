@@ -8,6 +8,10 @@ const updateLibrary = (state = myMusic, action) => {
             const newSong = action.payload;
             const id = state.length + 1;
 
+            if (newSong.url === '') {
+                newSong.url = 'https://pngimg.com/uploads/vinyl/vinyl_PNG97.png';
+            }
+
             return [
                 ...state,
                 {

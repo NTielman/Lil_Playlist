@@ -27,7 +27,7 @@ const expandSong = (state = expandedSong, action) => {
                 artist: '',
                 genre: '',
                 rating: '',
-                url: 'https://w7.pngwing.com/pngs/552/280/png-transparent-phantasy-ghost-culture-vinyl-disc-phonograph-record-lp-record-vinyl-miscellaneous-phonograph-gramophone-record.png',
+                url: 'https://pngimg.com/uploads/vinyl/vinyl_PNG97.png',
                 id: '',
             };
         default:

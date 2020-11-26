@@ -1,3 +1,4 @@
+/* -------------- global styling -------------- */
 * {
   margin: 0px;
   padding: 0px;
@@ -5,12 +6,13 @@
 }
 
 body {
-width: 100%;
-height: 100vh;
-font-family: 'Yantramanav', sans-serif;
-color: whitesmoke;
+  width: 100%;
+  height: 100vh;
+  font-family: 'Yantramanav', sans-serif;
+  color: whitesmoke;
 }
 
+/* ------- divide page up in grid areas ------- */
 .App {
   width: 100%;
   display: grid;
@@ -20,12 +22,9 @@ color: whitesmoke;
   "sidebar header "
   "sidebar menu"
   "sidebar playlist";
-  justify-content: stretch;
-  justify-items: stretch;
-  align-items: stretch;
-  align-content: stretch;
 } 
 
+/* -------------- sidebar styling ------------- */
 .sidebar {
   grid-area: sidebar;
   padding: 40px;
@@ -45,10 +44,11 @@ color: whitesmoke;
   height: 320px;
   margin-bottom: 30px;
   box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
-
+  background-color: rgba(245, 245, 245, 0.062); 
 }
 
-.tooltip .tooltiptext,
+/* ------------- tooltip styling -------------- */
+.url-tooltip .tooltiptext,
 .song-info-tooltip .tooltiptext {
   opacity: 0;
   transition: opacity 1s;
@@ -62,29 +62,28 @@ color: whitesmoke;
   border-radius: 15px;
   padding: 5px;
   line-height: 1.5em;
-}
-
-.song-info-tooltip .tooltiptext {
-/* Position the tooltip */
   position: absolute;
   z-index: 1;
+}
+
+/* positioning tooltips */
+.song-info-tooltip .tooltiptext {
   bottom: 13.5%;
   left: 6%;
 }
 
-.tooltip .tooltiptext {
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
+/* positioning tooltips */
+.url-tooltip .tooltiptext {
   top: 8%;
   right: 10.5%;
-  }
+}
 
-.tooltip:hover .tooltiptext,
+.url-tooltip:hover .tooltiptext,
 .song-info-tooltip:hover .tooltiptext {
   opacity: 1;
 }
 
+/* ------------- button styling -------------- */
 .btn {
   border: none;
   padding: 10px;
@@ -95,6 +94,7 @@ color: whitesmoke;
   box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
 }
 
+/* outer buttons */
 .delete-btn,
 .display-form-btn {
   border-radius: 15px;
@@ -103,10 +103,15 @@ color: whitesmoke;
   transition: background-color 200ms ease-out;
 }
 
+/* inner buttons */
 .add-btn,
 .cancel-btn {
   width: 75px;
   transition: background-color 200ms ease-out;
+}
+
+.add-btn {
+  background-color:rgb(30, 177, 245);
 }
 
 .cancel-btn {
@@ -114,48 +119,40 @@ color: whitesmoke;
   background-color: rgb(250, 73, 114);
 }
 
-.cancel-btn:hover {
-  background-color: rgb(255, 135, 109);
-}
-
-.add-btn:hover,
-.delete-btn:hover,
-.display-form-btn:hover {
+.btn:hover {
   background-color:rgb(224, 39, 121);
 }
 
-.add-btn {
-  background-color:rgb(30, 177, 245);
-}
-
+/* ------------ nav link styling -------------- */
 hr {
   border-radius: 15px;
   border: 1px solid rgba(3, 2, 3, 0.5);
 }
 
 a {
-text-decoration: none;
-transition: color 200ms ease-out;
-color: rgba(245, 245, 245, 0.5);
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.5);
+  transition: color 200ms ease-out;
 }
 
 a:hover {
   color: rgb(250, 73, 114);
 }
 
+/* ------------- header styling --------------- */
 header {
   grid-area: header;
   padding: 40px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  /* background-image generated dynamically inside component */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url(https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=3000&q=80);
-  font-family: 'Lobster Two', cursive;
 }
 
+/* --------------- form styling --------------- */
 .add-song-form {
   width: 100%;
   display: flex;
@@ -165,7 +162,7 @@ header {
 
 select,
 .rating-field,
-.input-field{
+.input-field {
   padding: 10px;
   border: none;
   margin-right: 5px;
@@ -175,31 +172,7 @@ select,
   outline: none;
 }
 
-.rating-field {
-display: flex;
-flex-direction: row-reverse;
-}
-
-.rating-field label:nth-child(5) {
-  margin-left: 5px;
-}
-
-.rating-field label input:checked ~ i,
-.rating-field label:hover ~ label,
-.rating-field label:hover {
-  color: rgb(250, 73, 114);
-  transition: color 200ms ease-out;
-}
-
-.input-field:nth-child(1) {
-  border-radius: 15px 0px 0px 15px;
-}
-
-.add-song-form label i,
-select {
-  cursor: pointer;
-}
-
+/* style placeholder texts */
 .rating-field,
 select,
 ::placeholder {
@@ -207,7 +180,17 @@ select,
   font-family: 'Yantramanav', sans-serif;
 }
 
-.rating-field {
+.input-field:nth-child(1) {
+  border-radius: 15px 0px 0px 15px;
+}
+
+.add-song-form label .fa-star,
+select {
+  cursor: pointer;
+}
+
+/* star rating styling */
+ .rating-field {
   font-size: 13px;
 }
 
@@ -215,11 +198,31 @@ select,
   margin-right: 5px;
 }
 
+/* hide input boxes */
 .checkbox,
 .radio {
   display: none;
 }
 
+/* higlight hovered star + all stars that follow it */
+ .rating-field label:hover,
+ .rating-field label:hover ~ label,
+ .rating-field label input:checked ~ .fa-star {  
+  color: rgb(250, 73, 114);
+  transition: color 200ms ease-out;
+}
+
+/* reverse star directions */
+.rating-field {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.rating-field label:nth-child(5) {
+  margin-left: 5px;
+}
+
+/* --------------- menu styling --------------- */
 .menu-container {
   grid-area: menu;
   padding: 10px 20px;
@@ -236,15 +239,22 @@ select,
   text-align: left;
   font-family: 'Lobster Two', cursive;
 }
+
+/* ignore first (empty) th */
+.sort-menu th ~ th:hover {
+  color:rgb(250, 73, 114);
+  transition: color 300ms ease;
+}
+
 .sort-menu th ~ th,
 .filter-menu li label {
   cursor: pointer;
 }
 
+/* styling hidden filter menu */
 .filter-menu li {
   list-style: none;
   display: inline-flex;
-  align-items: center;
   width: 155px;
   height: 35px;
   color: rgb(13, 10, 17);
@@ -258,14 +268,16 @@ select,
   background-color:rgb(30, 177, 245);
 }
 
+/* highlight multiple selected genres */
 .filter-menu li input:checked ~ label,
 .filter-menu li label:hover {
   background-color:rgb(224, 39, 121);
 }
 
-.sort-menu th ~ th:hover {
-  color:rgb(250, 73, 114);
-  transition: color 300ms ease;
+/* ------------- playlist styling ------------- */
+.menu,
+.playlist {
+  width: 100%;
 }
 
 .playlist-container {
@@ -275,11 +287,19 @@ select,
   background-image: linear-gradient(to top,rgb(13, 10, 17), rgba(31, 25, 39, 0.945), rgba(31, 25, 39, 0.945), rgba(31, 25, 39, 0.945));
 }
 
-.menu,
-.playlist {
-  width: 100%;
+/* align song items and menu titles */
+.menu-title,
+.song-item-data {
+  width: 23.5%;
+  padding-left: 20px;
 }
 
+/* underline each song item */
+.song-item td {
+  border-bottom: 1px solid rgba(3, 2, 3, 0.5);
+}
+
+/* style individual song items */
 .song-item {
   cursor: pointer;
   font-size: 16px;
@@ -288,39 +308,20 @@ select,
   padding: 5px 0px;
   color: rgba(245, 245, 245, 0.6);
   transition: background-color 300ms ease;
-  
-}
-
-.song-item td{
-  border-bottom: 1px solid rgba(3, 2, 3, 0.5);
 }
 
 .song-item:hover {
   background-color: rgba(250, 73, 114, 0.05);
 }
 
-#title,
-#artist,
-#genre,
-#rating,
-.title,
-.genre,
-.artist,
-.rating {
-  width: 23.5%;
-  padding-left: 20px;
-}
-
-.list-image {
+.song-item-image {
   width: 70px;
   height: 70px;
   box-shadow: 3px 5px 6px rgba(3, 2, 3, 0.5);
+  background-color: rgba(245, 245, 245, 0.062); 
 }
 
-th:nth-child(1) {
-  width: 70px;
-}
-
+/* ------------ about page styling ------------ */
 .about-container {
   grid-area: playlist;
   display: flex;

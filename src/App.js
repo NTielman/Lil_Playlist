@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-//styling per component or external stylesheet?
 import About from './components/About';
 import Header from './components/Header';
 import SortMenu from './components/SortMenu';

@@ -62,7 +62,7 @@ const AddSongForm = () => {
                 Rating:
             </span>
 
-            <span className="tooltip">
+            <span className="url-tooltip">
                 <span className="tooltiptext">*optional: add an url to display custom album art </span>
                 <input
                     placeholder="Album Art Url..."

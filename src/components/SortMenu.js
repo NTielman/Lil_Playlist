@@ -13,7 +13,7 @@ const SortMenu = () => {
             <table className="menu">
                 <tr className="sort-menu">
                     <th></th>
-                    <th id="title"
+                    <th className="menu-title"
                         onClick={(event) => {
                             const sortCriteria = {
                                 sortBy: event.target.id, //sort by title
@@ -23,7 +23,7 @@ const SortMenu = () => {
                             sortDown = !sortDown;
                         }}
                     >Title <i className="fas fa-sort"></i></th>
-                    <th id="artist"
+                    <th className="menu-title"
                         onClick={(event) => {
                             const sortCriteria = {
                                 sortBy: event.target.id, //sort by artist
@@ -33,9 +33,9 @@ const SortMenu = () => {
                             sortDown = !sortDown;
                         }}
                     >Artist <i className="fas fa-sort"></i></th>
-                    <th id="genre"
+                    <th className="menu-title"
                         onClick={() => dispatch(toggleFilters())}>Genre</th>
-                    <th id="rating"
+                    <th className="menu-title"
                         onClick={(event) => {
                             const sortCriteria = {
                                 sortBy: event.target.id, //sort by rating
