@@ -21,6 +21,5 @@ export default allReducers;
 
 //header tin ku use state that tells it what genre is chosen {genre: url, jazz: url, rock:url} etc
 //setinterval to render backgroundimages
-//style transitions 
 //vul in database of songs
 //some components bijv addform i toggle can use local states usestate()?

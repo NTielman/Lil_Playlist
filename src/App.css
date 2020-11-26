@@ -100,11 +100,13 @@ color: whitesmoke;
   border-radius: 15px;
   width: 150px;
   background-color:rgb(30, 177, 245);
+  transition: background-color 200ms ease-out;
 }
 
 .add-btn,
 .cancel-btn {
   width: 75px;
+  transition: background-color 200ms ease-out;
 }
 
 .cancel-btn {
@@ -133,6 +135,7 @@ hr {
 
 a {
 text-decoration: none;
+transition: color 200ms ease-out;
 color: rgba(245, 245, 245, 0.5);
 }
 
@@ -185,6 +188,7 @@ flex-direction: row-reverse;
 .rating-field label:hover ~ label,
 .rating-field label:hover {
   color: rgb(250, 73, 114);
+  transition: color 200ms ease-out;
 }
 
 .input-field:nth-child(1) {
@@ -243,13 +247,15 @@ select,
   align-items: center;
   width: 155px;
   height: 35px;
-  background-color:rgb(30, 177, 245);
+  color: rgb(13, 10, 17);
 }
 
 .filter-menu li label {
   width: 100%;
   height: 100%;
   text-align: center;
+  transition: background-color 300ms ease-in;
+  background-color:rgb(30, 177, 245);
 }
 
 .filter-menu li input:checked ~ label,
@@ -258,7 +264,8 @@ select,
 }
 
 .sort-menu th ~ th:hover {
-  border-bottom: 3px solid rgb(250, 73, 114);
+  color:rgb(250, 73, 114);
+  transition: color 300ms ease;
 }
 
 .playlist-container {
@@ -280,6 +287,8 @@ select,
   height: 80px;
   padding: 5px 0px;
   color: rgba(245, 245, 245, 0.6);
+  transition: background-color 300ms ease;
+  
 }
 
 .song-item td{
