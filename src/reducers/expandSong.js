@@ -21,7 +21,7 @@ const expandSong = (state = expandedSong, action) => {
                 url,
                 id,
             };
-        case 'CLEAR':
+        case 'RESET-SIDEBAR':
             return {
                 title: '',
                 artist: '',

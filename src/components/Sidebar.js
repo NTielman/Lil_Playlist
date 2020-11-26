@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { remove, clear } from '../actions';
+import { remove, resetSidebar } from '../actions';
 import starRating from './StarRating';
 
 const Sidebar = () => {
@@ -27,7 +27,7 @@ const Sidebar = () => {
                     className="btn delete-btn"
                     onClick={() => {
                         dispatch(remove(selectedSong.id))
-                        dispatch(clear())
+                        dispatch(resetSidebar())
                     }}>Delete Track</button>
             </div>
             <div className="about-link">

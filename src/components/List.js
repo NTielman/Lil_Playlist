@@ -7,8 +7,8 @@ import { duplicate } from '../actions';
 const List = () => {
     const dispatch = useDispatch();
     const musicLibrary = useSelector(state => state.updateLibrary);
-    const activeFilters = useSelector(state => state.filter);
-    const playList = useSelector(state => state.playList);
+    const activeFilters = useSelector(state => state.activeFilters);
+    const playList = useSelector(state => state.sortSongs);
     const filteredList = FilteredList(playList, activeFilters);
     //makes initial copy of musiclibrary to display
 

@@ -9,7 +9,7 @@ const newSong = {
 const createSong = (state = newSong, action) => {
 
     switch (action.type) {
-        case 'UPDATE':
+        case 'UPDATE-FORM':
             const target = action.payload;
             const { name, value } = target;
 
@@ -17,7 +17,7 @@ const createSong = (state = newSong, action) => {
                 ...state,
                 [name]: value
             };
-        case 'RESET':
+        case 'RESET-FORM':
             const emptyForm = newSong;
             return emptyForm;
         default:

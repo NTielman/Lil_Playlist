@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { expand } from '../actions';
+import { expandInfo } from '../actions';
 import starRating from './StarRating';
 
 const ListItem = (props) => {
@@ -11,7 +11,7 @@ const ListItem = (props) => {
     return (
         <tr className="song-item"
             key={props.song.id}
-            onClick={() => dispatch(expand(props.song))}>
+            onClick={() => dispatch(expandInfo(props.song))}>
             <td><img className="song-item-image"
                 src={props.song.url}
                 alt="album art"></img></td>

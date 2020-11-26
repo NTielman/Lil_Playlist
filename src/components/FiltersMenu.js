@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { filter } from '../actions';
+import { getFilters } from '../actions';
 
 const genres = ['rock', 'jazz', 'pop', 'rnb', 'rap', 'lofi', 'latin', 'soul'];
 
@@ -16,7 +16,7 @@ const FiltersMenu = () => {
                             className="checkbox"
                             type="checkbox"
                             name="genre"
-                            onChange={(event) => dispatch(filter(event.target))}
+                            onChange={(event) => dispatch(getFilters(event.target))}
                             id={genre}
                             value={genre}></input>
                         <label htmlFor={genre}>{genre}</label>

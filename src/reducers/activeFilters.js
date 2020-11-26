@@ -1,8 +1,8 @@
-const filterSongs = (state = [], action) => {
+const activeFilters = (state = [], action) => {
 
     switch (action.type) {
 
-        case 'FILTER':
+        case 'GET-FILTERS':
             const target = action.payload;
             const { name, value } = target;
             const activeFilter = { [name]: value };
@@ -18,4 +18,4 @@ const filterSongs = (state = [], action) => {
     }
 }
 
-export default filterSongs;
+export default activeFilters;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleForm, add, update, reset } from '../actions';
+import { toggleForm, add, updateForm, resetForm } from '../actions';
 
 const AddSongForm = () => {
     const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const AddSongForm = () => {
                 event.preventDefault()
                 dispatch(add(newSong))
                 dispatch(toggleForm())
-                dispatch(reset())
+                dispatch(resetForm())
             }}>
 
             <input
@@ -24,7 +24,7 @@ const AddSongForm = () => {
                 type="text"
                 name="title"
                 value={newSong.title}
-                onChange={(event) => dispatch(update(event.target))}
+                onChange={(event) => dispatch(updateForm(event.target))}
                 className="input-field"></input>
 
             <input
@@ -32,12 +32,12 @@ const AddSongForm = () => {
                 type="text"
                 name="artist"
                 value={newSong.artist}
-                onChange={(event) => dispatch(update(event.target))}
+                onChange={(event) => dispatch(updateForm(event.target))}
                 className="input-field"></input>
 
             <select
                 name="genre"
-                onChange={(event) => dispatch(update(event.target))}>
+                onChange={(event) => dispatch(updateForm(event.target))}>
                 <option value="" disabled selected hidden>Genre</option>
                 {genres.map(genre => {
                     return (
@@ -54,7 +54,8 @@ const AddSongForm = () => {
                                 className="radio"
                                 type="radio"
                                 name="rating"
-                                onChange={(event) => dispatch(update(event.target))}
+                                onChange={(event) => dispatch(updateForm
+                                    (event.target))}
                                 value={index}></input>
                             <i className="fas fa-star"></i>
                         </label>)
@@ -69,7 +70,8 @@ const AddSongForm = () => {
                     type="url"
                     name="url"
                     value={newSong.url}
-                    onChange={(event) => dispatch(update(event.target))}
+                    onChange={(event) => dispatch(updateForm
+                        (event.target))}
                     className="input-field"></input>
             </span>
 
@@ -81,7 +83,7 @@ const AddSongForm = () => {
                 type="reset"
                 className="btn cancel-btn"
                 onClick={() => {
-                    dispatch(reset())
+                    dispatch(resetForm())
                     dispatch(toggleForm())
                 }}>Cancel</button>
         </form>
