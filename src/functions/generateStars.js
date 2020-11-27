@@ -1,7 +1,9 @@
+/* -------- generates a number of star icons based on ratingNumber -------- */
 import React from 'react';
 
-//generates a number of star icons based on ratingNumber
 const starRating = (ratingNumber) => {
+
+    //create empty list (container) to hold all icons 
     let iconArray = [];
 
     for (let num = 0; num < ratingNumber; num++) {
