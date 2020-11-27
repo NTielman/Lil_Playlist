@@ -3,10 +3,13 @@ const sortSongs = (state = [], action) => {
     //change this from reducer to function? meeskos ku filters.
     //function that takes in a playlist i sort criteria and return a song array based on that criteria
 
+
     //DOM list usestate =[] ora filters get clicked setstate = filteredlist.
     //ora sort get clicked setstate to sort whatever playlist ta den DOM 
     //so filter should always receive a full songlist (library) to filter from
     //sort should receive whatever playlist ta den e DOM ?
+
+    //fix sortmenu overload ora dispatch gets called test if object is valid before accessing properties
     switch (action.type) {
         case 'DUPLICATE':
             const playList = action.payload;

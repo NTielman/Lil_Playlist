@@ -18,9 +18,3 @@ const allReducers = combineReducers({
 });
 
 export default allReducers;
-
-//vul in database of songs
-//split sortmenu into menu i sortmenu child
-// rename components i change den components i app: Form
-//fix sortmenu overload ora dispatch gets called test if object is valid before accessing properties
-//fix headercarousel rerenders everytime button is clicked

@@ -1,10 +1,11 @@
+/* -------------- Renders a menu of genres to filter the playlist by -------------- */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilters } from '../actions';
 
-const genres = ['rock', 'jazz', 'pop', 'rnb', 'rap', 'lofi', 'latin', 'soul'];
-
 const FiltersMenu = () => {
+
+    const genres = ['rock', 'jazz', 'pop', 'rnb', 'rap', 'lofi', 'latin', 'soul'];
     const dispatch = useDispatch();
     const activeFilters = useSelector(state => state.activeFilters);
 
@@ -14,9 +15,9 @@ const FiltersMenu = () => {
                 return (
                     <li key={genres.indexOf(genre)}>
                         <input
-                            className="checkbox"
                             type="checkbox"
                             name="genre"
+                            className="checkbox"
                             checked={activeFilters[genre]}
                             onChange={(event) => dispatch(getFilters(event.target))}
                             id={genre}
@@ -25,6 +26,7 @@ const FiltersMenu = () => {
                     </li>);
             })}
         </ul>);
+
 }
 
 export default FiltersMenu;
