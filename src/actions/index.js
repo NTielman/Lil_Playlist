@@ -38,15 +38,7 @@ export const remove = (songId) => {
     }
 }
 
-/* reducer: sortSongs || usedBy: SortMenu, List */
-// duplicates musicLibrary, doesn't mutate original 
-export const duplicate = (musicList) => {
-    return {
-        type: 'DUPLICATE',
-        payload: musicList,
-    }
-}
-
+/* reducer: activeSort || usedBy: SortingMenu, List */
 // sorts songs by criteria: title artists etc.
 export const sort = (sortCriteria) => {
     return {
@@ -55,7 +47,7 @@ export const sort = (sortCriteria) => {
     }
 }
 
-/* reducer: hideFilters || usedBy: SortMenu, Menu */
+/* reducer: hideFilters || usedBy: SortingMenu, Menu */
 // toggles filterMenu
 export const toggleFilters = () => {
     return {

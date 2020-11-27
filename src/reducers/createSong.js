@@ -2,7 +2,7 @@ const defaultSong = {
     title: '',
     artist: '',
     genre: '',
-    rating: '',
+    rating: 0,
     url: '',
 }
 

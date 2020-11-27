@@ -1,42 +1,48 @@
 /* -------------- Renders a list of songs (playlist) to DOM -------------- */
-import React, { useEffect } from 'react';
+import React from 'react';
 import ListItem from './ListItem';
 import filterList from '../functions/filterList';
-import { useSelector, useDispatch } from 'react-redux';
-import { duplicate } from '../actions';
+import sortList from '../functions/sortList';
+import { useSelector } from 'react-redux';
 
 const List = () => {
 
-    const dispatch = useDispatch();
+    //modifies playlist whenever song is added or removed from library
     const musicLibrary = useSelector(state => state.updateLibrary);
+    //modifies playlist when 1 or more filters is selected or deselected
     const activeFilters = useSelector(state => state.activeFilters);
-    const playList = useSelector(state => state.sortSongs);
-    const filteredList = filterList(playList, activeFilters);
     const applyFilters = Object.values(activeFilters).filter(value => value === true);
+    //modifies playlist when user selects a sortingCriteria (rating, title etc.)
+    const activeSort = useSelector(state => state.activeSort);
 
-    //makes initial copy of musiclibrary to display
-    useEffect(() => {
-        dispatch(duplicate(musicLibrary));
-    }, [musicLibrary, dispatch])
+    //returns list to be rendered to DOM based on active filters and sortCriteria
+    const playlist = () => {
+        let list = musicLibrary.map(song => song);
 
-    //if any filters are selected: display filtered list else display playlist
+        //if there are active filters filter list 
+        if (applyFilters.length > 0) {
+            list = filterList(list, activeFilters);
+        }
+
+        //if sortCriteria is active sort list
+        if (activeSort.active) {
+            list = sortList(list, activeSort);
+        }
+
+        return list;
+    };
+
+
     return (
         <div className="playlist-container">
             <table className="playlist">
                 <tbody>
-                    {applyFilters.length > 0 ?
-                        filteredList.map(song => {
-                            return (
-                                <ListItem
-                                    song={song}
-                                    key={song.id} />)
-                        }) : playList.map(song => {
-                            return (
-                                <ListItem
-                                    song={song}
-                                    key={song.id} />)
-                        })
-                    }
+                    {playlist().map(song => {
+                        return (
+                            <ListItem
+                                song={song}
+                                key={song.id} />)
+                    })}
                 </tbody>
             </table>
         </div>

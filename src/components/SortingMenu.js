@@ -7,7 +7,6 @@ const SortMenu = () => {
 
     const categories = ['title', 'artist', 'rating'];
     const dispatch = useDispatch();
-    let sortDown = true;
 
     return (
         <tbody>
@@ -17,18 +16,10 @@ const SortMenu = () => {
                     return (
                         <th id={category}
                             key={categories.indexOf(category)}
-                            onClick={(event) => {
-                                const sortCriteria = {
-                                    sortBy: event.target.id,
-                                    sortDirection: sortDown
-                                }
-
-                                dispatch(sort(sortCriteria))
-                                sortDown = !sortDown;
-                            }}
+                            onClick={(event) => dispatch(sort(event.target.id))}
                             className="menu-title">
                             {category[0].toUpperCase() + category.slice(1)}
-                            <i className="fas fa-sort"></i>
+                            <i id={category} className="fas fa-sort"></i>
                         </th>);
                 })}
                 <th className="menu-title"
