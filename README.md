@@ -3,7 +3,7 @@
 
 
 ## Description 
-A webapp to organise your music. 
+A web app to organize your music. 
 
 ## Languages, Libraries & Frameworks
 * React
@@ -24,11 +24,11 @@ A webapp to organise your music.
 
 
 ## Live Demo 
-https://hungry-jennings-92ae10.netlify.app
+https://hardcore-thompson-95495f.netlify.app
 
 
 ## Usage & Details 
-The goal of this webapp is to make it easy to add and organise your music. 
+The goal of this web app is to make it easy to add and organise your music. 
 
 * To add a new track, tap on the "add a song" button, fill in the track's info and press 'add'
 * To view a track's info, tap on the desired playlist track and it will appear in the sidebar 
