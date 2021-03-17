@@ -18,7 +18,7 @@ const SortMenu = () => {
                             key={categories.indexOf(category)}
                             onClick={(event) => dispatch(sort(event.target.id))}
                             className="menu-title">
-                            {category[0].toUpperCase() + category.slice(1)}
+                            {category[0].toUpperCase() + category.slice(1) + ' '}
                             <i id={category} className="fas fa-sort"></i>
                         </th>);
                 })}

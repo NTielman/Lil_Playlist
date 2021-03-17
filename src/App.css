@@ -9,47 +9,69 @@ html {
   height: 100vh;
 }
 
+#root,
 body {
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   font-family: 'Yantramanav', sans-serif;
   color: whitesmoke;
-  overflow: hidden;
 }
 
 /* ------- divide page up in grid areas ------- */
 .App {
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 400px auto;
-  grid-template-rows: 310px 6% auto;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 32.5% 5% 62.5%;
   grid-template-areas: 
   "sidebar header "
   "sidebar menu"
   "sidebar playlist";
-  overflow: hidden;
 } 
 
 /* -------------- sidebar styling ------------- */
 .sidebar {
   grid-area: sidebar;
-  padding: 40px;
-  font-size: 23px;
+  padding: 10%;
+  font-size: 22px;
   line-height: 2em;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
   font-family: 'Lobster Two', cursive;
   background-image: linear-gradient(to bottom,rgb(13, 10, 17), rgb(31, 25, 39),  rgba(31, 25, 39, 0.945));
 }
 
+.song-info-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-info-tooltip {
+  width: 100%;
+  height: 40%;
+  position: relative;
+}
+
+.song-info-text {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .sidebar-img {
-  width: 320px;
-  height: 320px;
-  margin-bottom: 30px;
+  position: absolute;
+  width: 90%;
+  right: 5%;
   box-shadow: 6px 10px 15px rgba(3, 2, 3, 0.5);
   background-color: rgba(245, 245, 245, 0.062); 
 }
@@ -70,19 +92,17 @@ body {
   padding: 5px;
   line-height: 1.5em;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* positioning tooltips */
-.song-info-tooltip .tooltiptext {
-  bottom: 13.5%;
-  left: 6%;
+.url-tooltip {
+  position: relative;
 }
 
-/* positioning tooltips */
 .url-tooltip .tooltiptext {
-  top: 8%;
-  right: 10.5%;
+  bottom: 125%;
+  right: -8.5%;
 }
 
 .url-tooltip:hover .tooltiptext,
@@ -238,6 +258,7 @@ select {
 
 .menu {
   margin-bottom: 5px;
+  position: relative;
 }
 
 .filter-menu,
@@ -262,7 +283,7 @@ select {
 .filter-menu li {
   list-style: none;
   display: inline-flex;
-  width: 155px;
+  width: 152px;
   height: 35px;
   color: rgb(13, 10, 17);
 }
@@ -283,7 +304,7 @@ select {
 
 .filter-menu {
   position: absolute;
-  z-index: 5;
+  z-index: 3;
 }
 
 /* ------------- playlist styling ------------- */
@@ -294,7 +315,6 @@ select {
 
 .playlist-container {
   grid-area: playlist;
-  height: 61vh;
   overflow: scroll;
   padding: 20px;
   background-image: linear-gradient(to top,rgb(13, 10, 17), rgba(31, 25, 39, 0.945), rgba(31, 25, 39, 0.945), rgba(31, 25, 39, 0.945));

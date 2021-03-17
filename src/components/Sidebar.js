@@ -14,7 +14,7 @@ const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className="song-info-container">
-                <span className="song-info-tooltip">
+                <div className="song-info-tooltip">
                     <span className="tooltiptext">
                         click on a song to display more info
                     </span>
@@ -22,18 +22,20 @@ const Sidebar = () => {
                         src={selectedSong.url}
                         alt="album art">
                     </img>
-                </span>
-                <h3>Title: {selectedSong.title}</h3>
-                <p>Artist: {selectedSong.artist}</p>
-                <p>Genre: {selectedSong.genre}</p>
-                <p>{generateStars(ratingNumber)}</p>
-                <button
-                    className="btn delete-btn"
-                    onClick={() => {
-                        dispatch(remove(selectedSong.id))
-                        dispatch(resetSidebar())
-                    }}>Delete Track
+                </div>
+                <div className="song-info-text">
+                    <h3>Title: {selectedSong.title}</h3>
+                    <p>Artist: {selectedSong.artist}</p>
+                    <p>Genre: {selectedSong.genre}</p>
+                    <p>{generateStars(ratingNumber)}</p>
+                    <button
+                        className="btn delete-btn"
+                        onClick={() => {
+                            dispatch(remove(selectedSong.id))
+                            dispatch(resetSidebar())
+                        }}>Delete Track
                 </button>
+                </div>
             </div>
 
             <div className="about-link">
